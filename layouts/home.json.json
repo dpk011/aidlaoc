@@ -1,12 +1,16 @@
 {{- /*
   Builds /index.json — the list of pages the News page search box looks
   through. It regenerates on every build, so there is nothing to keep in sync.
+
+  `url` uses .Permalink (a full web address) rather than .RelPermalink,
+  because the site may be published under a subdirectory — a github.io
+  preview address, for instance — where a bare "/page/" would point above it.
 */ -}}
 {{- $pages := slice -}}
 {{- range where site.RegularPages "Params.searchExclude" "!=" true -}}
   {{- $pages = $pages | append (dict
       "title"   .Title
-      "url"     .RelPermalink
+      "url"     .Permalink
       "date"    (.Date.Format "January 2, 2006")
       "isPost"  (eq .Type "posts")
       "content" (.Plain | htmlUnescape | chomp)

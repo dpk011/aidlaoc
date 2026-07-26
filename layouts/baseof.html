@@ -4,7 +4,10 @@
 {{ partial "head.html" . }}
 </head>
 
-<body data-search-index="{{ "index.json" | relURL }}" class="{{ block "bodyclass" . }}{{ end }} wp-custom-logo wp-theme-neve gutentor-active {{ block "sidebarclass" . }}nv-sidebar-full-width{{ end }} menu_sidebar_dropdown">
+{{- /* absURL, not relURL: this is a data- attribute, so the canonifyURLs
+       setting in hugo.toml doesn't rewrite it the way it does src and href.
+       A full URL is correct wherever the site is published. */ -}}
+<body data-search-index="{{ "index.json" | absURL }}" class="{{ block "bodyclass" . }}{{ end }} wp-custom-logo wp-theme-neve gutentor-active {{ block "sidebarclass" . }}nv-sidebar-full-width{{ end }} menu_sidebar_dropdown">
 <div class="wrapper">
 
 {{ partial "header.html" . }}

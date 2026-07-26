@@ -122,6 +122,21 @@ The order these load in matters. `layouts/_partials/head.html` explains why.
 
 ## Things worth knowing
 
+**The site works at any address.** It's built for `aidlaoc.org`, but it also
+works unchanged on a GitHub preview address like
+`ansg191.github.io/aidlaoc/`, where everything sits under an extra `/aidlaoc/`
+prefix. Three things make that true, and all three are easy to undo by
+accident:
+
+- `canonifyURLs = true` in `hugo.toml` — rewrites `/images/...` links written
+  inside page content.
+- Image paths in `static/css/` are written as `../images/...`, not
+  `/images/...`, so they resolve relative to the stylesheet.
+- The search box uses full web addresses (`.Permalink`), not `/page/` ones.
+
+If you ever see images working on the real domain but broken on a preview
+link, one of those three is the cause.
+
 **Two pages are blank.** `holi-on-the-beach.md` and `covid-19.md` have no
 content. They were blank on the old WordPress site too. "Holi On The Beach" is
 still in the top menu, so visitors clicking it reach an empty page — that was

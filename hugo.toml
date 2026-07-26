@@ -9,6 +9,13 @@ baseURL = 'https://aidlaoc.org/'
 locale  = 'en-US'
 title   = 'AID LA-OC'
 
+# Rewrites links like "/images/logo.png" in page content so they point at the
+# right place no matter where the site is published. Without this, the site
+# only works when it sits at the root of a domain — it breaks on a preview
+# address such as ansg191.github.io/aidlaoc/, where everything lives under a
+# /aidlaoc/ prefix. Leave this on.
+canonifyURLs = true
+
 # content/README.md is a guide for whoever edits the site, not a page on it.
 ignoreFiles = ['content/README\.md$']
 
