@@ -1,0 +1,26 @@
+{{- /*
+  A standard page (About Us, Projects, Donate, ...).
+
+  Set `hide_title: true` in a page's front matter to leave off the big heading,
+  the way the old site did on some pages.
+*/ -}}
+{{ define "bodyclass" }}wp-singular page-template-default page page-id-{{ .Params.wp_id }}{{ end }}
+{{ define "sidebarclass" }}nv-sidebar-full-width{{ if .Params.hide_title }} nv-without-title{{ end }}{{ end }}
+{{ define "main" }}
+	<div class="container single-page-container">
+		<div class="row">
+			<div class="nv-single-page-wrap col">
+				{{- if not .Params.hide_title }}
+				<div class="nv-page-title-wrap nv-big-title">
+					<div class="nv-page-title{{ if eq .Params.title_align "left" }} has-text-align-left{{ end }}">
+						<h1>{{ .Title }}</h1>
+					</div>
+				</div>
+				{{- end }}
+				<div class="nv-content-wrap entry-content">
+{{ .Content }}
+				</div>
+			</div>
+		</div>
+	</div>
+{{ end }}

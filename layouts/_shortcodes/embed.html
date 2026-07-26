@@ -1,0 +1,9 @@
+{{- /*
+  Embeds something hosted elsewhere — a Google Slides deck, a map, a form.
+
+      {{< embed src="https://docs.google.com/presentation/d/e/XXXX/embed" width="960" height="569" >}}
+
+  Get the address from the "Publish to the web" or "Embed" option on the
+  service you're embedding from.
+*/ -}}
+<iframe src="{{ .Get "src" | safeURL }}" frameborder="0" width="{{ .Get "width" | default 960 }}" height="{{ .Get "height" | default 569 }}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" loading="lazy"></iframe>

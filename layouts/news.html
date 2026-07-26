@@ -1,0 +1,32 @@
+{{- /*
+  The News / Events page: a list of every post, newest first, with the
+  sidebar on the left. Posts come from content/posts/ — add a file there and
+  it shows up here automatically.
+
+  Used because content/news.md sets `layout: news` in its front matter.
+*/ -}}
+{{ define "bodyclass" }}blog{{ end }}
+{{ define "sidebarclass" }}nv-sidebar-left{{ end }}
+{{ define "main" }}
+	<div class="container archive-container">
+		<div class="row">
+			<div class="nv-sidebar-wrap col-sm-12 nv-left blog-sidebar" >
+				{{ partial "sidebar.html" . }}
+			</div>
+			<div class="nv-index-posts blog col">
+				<div class="nv-page-title-wrap nv-big-title">
+					<div class="nv-page-title">
+						<h1>{{ .Title }}</h1>
+					</div><!--.nv-page-title-->
+				</div>
+				<div class="posts-wrapper row">
+				{{- range where site.RegularPages "Type" "posts" }}
+					{{ partial "post-card.html" . }}
+				{{- end }}
+				</div>
+				<div class="load-more-posts"><span class="nv-loader" style="display: none"></span><span class="infinite-scroll-trigger"></span></div>
+				<div class="w-100"></div>
+			</div>
+		</div>
+	</div>
+{{ end }}

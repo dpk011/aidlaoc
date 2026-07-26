@@ -1,0 +1,13 @@
+# Built site — regenerated on every build, never committed.
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# Editor and OS clutter
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Local tooling index
+codedb.snapshot

@@ -1,0 +1,15 @@
+{{- /*
+  A picture inside a post.
+
+      {{< image src="/images/Event_Banner-1024x576.jpg" alt="Describe the picture" >}}
+
+  Put the picture file in static/images/ first. `alt` is the description read
+  aloud to blind visitors — always worth filling in.
+  Optional: width, height, size (large / full).
+*/ -}}
+<figure class="wp-block-image {{ .Get "size" | default "size-large" }}"><img
+  {{- with .Get "width" }} width="{{ . }}"{{ end }}
+  {{- with .Get "height" }} height="{{ . }}"{{ end }}
+  src="{{ .Get "src" | relURL }}"
+  alt="{{ .Get "alt" }}"
+  decoding="async" loading="lazy" /></figure>

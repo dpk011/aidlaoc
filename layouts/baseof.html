@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale | default "en-US" }}">
+<head>
+{{ partial "head.html" . }}
+</head>
+
+<body data-search-index="{{ "index.json" | relURL }}" class="{{ block "bodyclass" . }}{{ end }} wp-custom-logo wp-theme-neve gutentor-active {{ block "sidebarclass" . }}nv-sidebar-full-width{{ end }} menu_sidebar_dropdown">
+<div class="wrapper">
+
+{{ partial "header.html" . }}
+
+<main id="content" class="neve-main">
+{{ block "main" . }}{{ end }}
+</main>
+
+{{ partial "footer.html" . }}
+
+</div><!--/.wrapper-->
+{{ partial "scripts.html" . }}
+</body>
+</html>

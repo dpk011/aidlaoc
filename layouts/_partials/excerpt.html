@@ -1,0 +1,18 @@
+{{- /*
+  The short preview of a post shown on the News page.
+
+  A post can set its own preview text in front matter:
+
+      excerpt: "The sentence or two to show on the News page."
+      excerpt_truncated: true   # adds a "Read More »" link at the end
+
+  If a post doesn't set `excerpt`, Hugo writes one automatically from the
+  opening of the post, so new posts need no extra work.
+*/ -}}
+{{- if isset .Params "excerpt" -}}
+  {{- with .Params.excerpt -}}
+<p>{{ . | safeHTML }}{{ if $.Params.excerpt_truncated }}&nbsp;<a class="" href="{{ $.RelPermalink }}" rel="bookmark">Read More &raquo;<span class="screen-reader-text">{{ $.Title }}</span></a>{{ end }}</p>
+  {{- end -}}
+{{- else -}}
+  {{- .Summary -}}
+{{- end -}}

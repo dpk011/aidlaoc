@@ -1,0 +1,17 @@
+{{- /*
+  The "Tags:" row at the bottom of a post.
+
+  Shown only when a post lists tags in its front matter, e.g.
+
+      tags: ["covid19", "sunderbans"]
+
+  Each name must match a folder under content/tags/.
+*/ -}}
+{{- with .Params.tags -}}
+<div class="nv-tags-list"><span>Tags:</span>
+	{{- range . -}}
+		{{- with site.GetPage (printf "tags/%s" .) -}}
+<a href="{{ .RelPermalink }}" class="{{ .File.ContentBaseName }}" rel="tag" title="{{ .Title }}">{{ .Title }}</a>
+		{{- end -}}
+	{{- end }} </div>
+{{- end -}}

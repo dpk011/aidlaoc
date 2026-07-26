@@ -1,0 +1,27 @@
+{{- /*
+  JavaScript, loaded at the end of the page.
+
+  Only what the visible site actually needs is here:
+    jQuery          — required by the two libraries below
+    slick + gutentor— the rotating banner on the homepage
+    wow             — the fade-in animation on scroll
+    neve frontend   — the mobile menu open/close
+    search          — the search box on the News page
+
+  The old site also loaded scripts for the Facebook feed, Amazon Polly
+  text-to-speech, and WordPress comments. Those are gone: the feed is now a
+  saved copy (see content/README.md), Polly displayed nothing at all, and
+  comments were removed. Dropping the Facebook script also removed a Facebook
+  API access token that used to be published in the page source.
+*/ -}}
+<script src="{{ "lib/jquery/jquery.min.js" | relURL }}"></script>
+<script src="{{ "lib/jquery/jquery-migrate.min.js" | relURL }}"></script>
+<script src="{{ "lib/wow/wow.min.js" | relURL }}"></script>
+<script>var NeveProperties = {"ajaxurl":"","nonce":"","isRTL":"","isCustomize":""};</script>
+<script src="{{ "lib/neve/frontend.js" | relURL }}"></script>
+<script src="{{ "lib/slick/slick.min.js" | relURL }}"></script>
+<script>var gutentorLS = {"fontAwesomeVersion":"5","restNonce":"","restUrl":""};</script>
+<script src="{{ "lib/gutentor/gutentor.min.js" | relURL }}"></script>
+{{- if .Params.search }}
+<script src="{{ "js/search.js" | relURL }}"></script>
+{{- end }}

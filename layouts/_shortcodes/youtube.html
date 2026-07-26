@@ -1,0 +1,12 @@
+{{- /*
+  A YouTube video.
+
+      {{< youtube id="kUuTI8gfINk" title="COVID Awareness in Sunderbans" >}}
+
+  The id is the part of the video's address after "v=" — in
+  https://www.youtube.com/watch?v=kUuTI8gfINk the id is kUuTI8gfINk.
+  Add align="aligncenter" to centre it.
+*/ -}}
+<figure class="wp-block-embed {{ with .Get "align" }}{{ . }} {{ end }}is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<div class="nv-iframe-embed"><iframe loading="lazy" title="{{ .Get "title" }}" width="1200" height="675" src="https://www.youtube.com/embed/{{ .Get "id" }}?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+</div></figure>

@@ -1,0 +1,62 @@
+{{- /*
+  Everything inside <head>.
+
+  The stylesheet order below is deliberate and matches the original site
+  exactly. CSS rules that appear later can override earlier ones, so
+  re-ordering these lines can silently change how the site looks.
+
+  Files under /lib/ are third-party libraries copied from the old site —
+  don't edit them. Files under /css/ came from the old site's settings;
+  custom.css is the one that holds hand-written styles.
+*/ -}}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<title>{{ if .IsHome }}{{ site.Title }} &#8211; {{ site.Params.tagline }}{{ else }}{{ .Title }} &#8211; {{ site.Title }}{{ end }}</title>
+<meta name="robots" content="max-image-preview:large">
+{{ with .Description | default site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- /* 1. WordPress block styles (were inline on the old site) */}}
+<link rel="stylesheet" href="{{ "css/wp-blocks.css" | relURL }}" media="all">
+
+{{- /* 2. Icon fonts and layout libraries */}}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800&#038;display=swap" media="all">
+<link rel="stylesheet" href="{{ "lib/slick/slick.min.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "lib/fontawesome/css/all.min.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "lib/wpness-grid/wpness-grid.min.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "lib/animate/animate.min.css" | relURL }}" media="all">
+
+{{- /* 3. Page-builder blocks, then the colour/spacing settings */}}
+<link rel="stylesheet" href="{{ "lib/gutentor/blocks.style.build.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "css/global-styles.css" | relURL }}" media="all">
+
+{{- /*
+  4. The Neve theme, then the theme settings saved on the old site.
+
+  The old site sent slightly different settings to standalone pages than to
+  post and listing pages — mainly how wide the content and sidebar are. Sending
+  the wrong one collapses the News sidebar, so pick the right one per page.
+  A page can force the listing variant with `neve_variant: archive` in its
+  front matter (content/holi-on-the-beach.md does this).
+*/ -}}
+{{- $isListing := or (eq .Type "posts") (eq .Kind "term") (eq .Layout "news") (eq .Params.neve_variant "archive") -}}
+{{- $neve := cond $isListing "css/neve-archive.css" "css/neve-page.css" -}}
+<link rel="stylesheet" href="{{ "lib/neve/style-main.min.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ $neve | relURL }}" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Poppins%3A400%2C600&#038;display=swap" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Work+Sans:800,600,300" media="all">
+
+{{- /* 5. Per-block tweaks, then hand-written custom CSS (edit this one) */}}
+<link rel="stylesheet" href="{{ "css/gutentor-dynamic.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}" media="all">
+<link rel="stylesheet" href="{{ "css/core-block-supports.css" | relURL }}" media="all">
+{{- if .Params.search }}
+<link rel="stylesheet" href="{{ "css/search.css" | relURL }}" media="all">
+{{- end }}
+
+<link rel="icon" href="{{ site.Params.favicon32 | relURL }}" sizes="32x32">
+<link rel="icon" href="{{ site.Params.favicon192 | relURL }}" sizes="192x192">
+<link rel="apple-touch-icon" href="{{ site.Params.appleIcon | relURL }}">
+<meta name="msapplication-TileImage" content="{{ site.Params.msTileImage | absURL }}">

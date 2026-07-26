@@ -1,0 +1,31 @@
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .gutentor-single-item-title,#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .gutentor-single-item-title a{color:var(--nv-text-dark-bg);font-family:'Work Sans',sans-serif;font-size:24px;font-weight:800;margin:0 0 10px 0}
+@media only screen and (min-width:768px){#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .gutentor-single-item-title,#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .gutentor-single-item-title a{font-size:50px;margin:0 0 30px 0}}
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item-button{color:var(--nv-text-color);background-color:rgba(255,170,0,1);margin:10px 0 0 0;padding:15px 30px 15px 30px;border-top-left-radius:50px;border-top-right-radius:50px;border-bottom-right-radius:50px;border-bottom-left-radius:50px;font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;text-transform:normal}
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item-button:hover{color:var(--nv-text-dark-bg);background-color:rgba(255,136,0,1)}
+@media only screen and (min-width:768px){#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item-button{margin:20px 0 0 0;padding:20px 40px 20px 40px;font-size:16px}}
+@media only screen and (min-width:992px){#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item-button{padding:20px 40px 20px 40px;font-size:24px}}
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .gutentor-single-item-desc{color:var(--nv-light-bg);font-family:'Work Sans',sans-serif;font-size:17px;font-weight:300;line-height:1.5;margin:0 0 10px 0}
+@media only screen and (min-width:768px){#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .gutentor-single-item-desc{margin:0 0 30px 0}}
+@media only screen and (min-width:992px){#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .gutentor-single-item-desc{font-size:19px;line-height:1.7}}
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .gutentor-bg-image,.imageSlider-repeater .gutentor-single-item .gutentor-bg-image{height:300px;background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:scroll}
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item-0 .gutentor-bg-image,.imageSlider-repeater .gutentor-single-item-0 .gutentor-bg-image{background-image:url(/images/WhatsApp-Image-2020-05-17-at-2.13.37-AM.jpeg)}
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item-1 .gutentor-bg-image,.imageSlider-repeater .gutentor-single-item-1 .gutentor-bg-image{background-image:url(/images/AID_green_eureka_child.jpg)}
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item-2 .gutentor-bg-image,.imageSlider-repeater .gutentor-single-item-2 .gutentor-bg-image{background-image:url(/images/pexels-jose-aragones-860577-1.jpg)}
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .bg-color-box{height:300px}
+@media (min-width:768px){#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .gutentor-bg-image{height:450px}#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .bg-color-box{height:450px}}
+@media (min-width:992px){#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .gutentor-bg-image{height:650px}#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-single-item .bg-color-box{height:550px}}
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-slider-wrapper .slick-arrow{background:var(--nv-secondary-accent)}
+#section-045edf0b-0142-4e33-9b77-48da8a34886d .gutentor-slider-wrapper .slick-dots li{background:rgba(252,175,59,1);height:rgba(252,175,59,1)}
+.gutentor-categories .gutentor-cat-uncategorized{color:#1974d2 !important;background:#ffffff !important}
+.gutentor-categories .gutentor-cat-uncategorized:hover{color:#1974d2 !important;background:#ffffff !important}
+.gm-aio-e5ce6a{color:#FFFFFF}
+.gm-ah-e5ce6a:hover .gm-aio-e5ce6a{color:#FFFFFF}
+.gm-aic-e5ce6a{color:#FFFFFF}
+.gm-ah-e5ce6a:hover .gm-aic-e5ce6a,.gutentor-module-accordion-active .gm-ah-e5ce6a .gm-aic-e5ce6a{color:#FFFFFF}
+.gm-ah-e5ce6a{background-color:var(--nv-secondary-accent);background-image:none}
+.gm-ah-e5ce6a:hover,.gutentor-module-accordion-active .gm-ah-e5ce6a{background-color:var(--nv-c-1);background-image:none}
+.gm-ah-e5ce6a .gutentor-module-accordion-panel-handler-label{color:var(--nv-primary-accent)}
+.gutentor-module-accordion-active .gm-ah-e5ce6a .gutentor-module-accordion-panel-handler-label,.gm-ah-e5ce6a:hover .gutentor-module-accordion-panel-handler-label{color:var(--nv-text-dark-bg)}
+.gm-ab-e5ce6a{border-style:solid;border-width:0 1px 1px 1px;border-color:#275cf6;padding:20px 20px 20px 20px}
+.gm-ab-e5ce6a:hover{border-style:solid;border-width:0 1px 1px 1px;border-color:#275cf6}
+#section-dd0f19df-4e7b-473d-b699-3d909ddd88fc .gutentor-divider-separator{border-top-style:solid;border-top-width:2px}

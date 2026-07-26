@@ -1,0 +1,14 @@
+{{- /* The front page. Its content lives in content/_index.html */ -}}
+{{ define "bodyclass" }}home wp-singular page-template-default page page-id-{{ .Params.wp_id }}{{ end }}
+{{ define "sidebarclass" }}nv-sidebar-full-width nv-without-title{{ end }}
+{{ define "main" }}
+	<div class="container single-page-container">
+		<div class="row">
+			<div class="nv-single-page-wrap col">
+				<div class="nv-content-wrap entry-content">
+{{ .Content }}
+				</div>
+			</div>
+		</div>
+	</div>
+{{ end }}

@@ -1,0 +1,17 @@
+{{- /*
+  Renders the <li> items for the main navigation.
+
+  Used twice per page: once for the desktop bar and once for the mobile
+  slide-out panel. The long class names are what the old theme's stylesheet
+  expects — they look redundant but they drive the hover and "current page"
+  styling. Edit the menu itself in hugo.toml, not here.
+*/ -}}
+{{- $ctx := .ctx -}}
+{{- $withIDs := .withIDs -}}
+{{- range site.Menus.main -}}
+{{- $active := or ($ctx.IsMenuCurrent "main" .) ($ctx.HasMenuCurrent "main" .) -}}
+{{- $classes := slice "menu-item" "menu-item-type-post_type" "menu-item-object-page" -}}
+{{- if $active }}{{ $classes = $classes | append "current-menu-item" "page_item" "current_page_item" "current_page_parent" }}{{ end -}}
+{{- with .Params.id }}{{ $classes = $classes | append (printf "menu-item-%v" .) }}{{ end }}
+<li{{ if and $withIDs .Params.id }} id="menu-item-{{ .Params.id }}"{{ end }} class="{{ delimit $classes " " }}"><a href="{{ .URL | relURL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+{{- end }}

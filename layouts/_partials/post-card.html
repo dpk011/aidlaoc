@@ -1,0 +1,14 @@
+{{- /*
+  One post as it appears in a list — on the News page, an author page or a tag
+  page. Called with the post itself as its context, so `.` is the post here.
+*/ -}}
+<article id="post-{{ .Params.wp_id }}" class="post-{{ .Params.wp_id }} post type-post status-publish format-standard{{ with .Params.image }} has-post-thumbnail{{ end }} hentry category-uncategorized{{ range .Params.tags }} tag-{{ . }}{{ end }} layout-grid col-md-12 col-sm-6 col-12">
+	<div class="article-content-col">
+		<div class="content">
+			{{- with .Params.image }}
+			<div class="nv-post-thumbnail-wrap"><a href="{{ $.RelPermalink }}" title="{{ $.Title }}" rel="bookmark"><img width="{{ $.Params.image_width | default 930 }}" height="{{ $.Params.image_height | default 620 }}" src="{{ . | relURL }}" class="attachment-neve-blog size-neve-blog wp-post-image" alt="{{ $.Params.image_alt }}" decoding="async" /></a></div>
+			{{- end }}
+			<h2 class="blog-entry-title entry-title"><a href="{{ .RelPermalink }}" rel="bookmark">{{ .Title }}</a></h2>{{ partial "post-meta.html" . }}<div class="excerpt-wrap entry-summary">{{ partial "excerpt.html" . }}</div>
+		</div>
+	</div>
+</article>

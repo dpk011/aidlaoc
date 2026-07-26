@@ -1,0 +1,104 @@
+# ---------------------------------------------------------------------------
+# AID LA-OC — site configuration
+#
+# This is the main settings file. The things you are most likely to want to
+# change are in the [params] section near the bottom.
+# ---------------------------------------------------------------------------
+
+baseURL = 'https://aidlaoc.org/'
+locale  = 'en-US'
+title   = 'AID LA-OC'
+
+# content/README.md is a guide for whoever edits the site, not a page on it.
+ignoreFiles = ['content/README\.md$']
+
+# Posts live at the top level of the site (aidlaoc.org/some-post/), which is
+# how the old WordPress site addressed them. Keeping this the same means no
+# existing link or bookmark breaks.
+[permalinks]
+  posts = '/:slug/'
+
+# Posts can credit an author and carry tags. Each author and each tag gets its
+# own page listing the relevant posts, the same as the old site did.
+# Authors are defined in content/authors/, tags in content/tags/.
+[taxonomies]
+  author = 'authors'
+  tag    = 'tags'
+
+[permalinks.term]
+  authors = '/author/:slug/'
+  tags    = '/tag/:slug/'
+
+[markup.goldmark.renderer]
+  # Allow raw HTML inside Markdown files. Several pages were built with the
+  # WordPress block editor and keep their original HTML — see content/README.md.
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false
+
+# ---------------------------------------------------------------------------
+# Navigation menu — the links across the top of every page.
+# To add a link: copy a block, bump the weight, point the url at your page.
+# ---------------------------------------------------------------------------
+[menus]
+  [[menus.main]]
+    name   = 'News/Events'
+    url    = '/news/'
+    weight = 1
+    [menus.main.params]
+      id = 232          # kept from WordPress so the CSS keeps matching
+
+  [[menus.main]]
+    name   = 'Projects'
+    url    = '/projects/'
+    weight = 2
+    [menus.main.params]
+      id = 237
+
+  [[menus.main]]
+    name   = 'Holi On The Beach'
+    url    = '/holi-on-the-beach/'
+    weight = 3
+    [menus.main.params]
+      id = 286
+
+  [[menus.main]]
+    name   = 'About Us'
+    url    = '/about-us/'
+    weight = 4
+    [menus.main.params]
+      id = 235
+
+# ---------------------------------------------------------------------------
+# Site details used by the templates.
+# ---------------------------------------------------------------------------
+[params]
+  tagline     = 'Los Angeles / Orange County Chapter'
+  description = 'Association for India&#039;s Development — Los Angeles / Orange County Chapter'
+
+  # Logo shown in the header.
+  logo        = '/images/cropped-Full_Logo_WhiteBG.png'
+  logoSmall   = '/images/cropped-Full_Logo_WhiteBG-300x70.png'
+  logoWidth   = 646
+  logoHeight  = 150
+
+  # The "Donate" button in the header.
+  donateText  = 'Donate'
+  donateURL   = '/donate'
+
+  # Text in the footer bar at the very bottom of every page.
+  footerText  = '<a href="https://themeisle.com/themes/neve/" rel="nofollow">Neve</a> | Powered by <a href="http://wordpress.org" rel="nofollow">WordPress</a>'
+
+  # Favicons / touch icons carried over from the old site.
+  favicon32   = '/images/cropped-cropped-logo-1-32x32.png'
+  favicon192  = '/images/cropped-cropped-logo-1-192x192.png'
+  appleIcon   = '/images/cropped-cropped-logo-1-180x180.png'
+  msTileImage = '/images/cropped-cropped-logo-1-270x270.png'
+
+[outputs]
+  # The extra JSON output is the search index used by the News page search box.
+  home = ['HTML', 'JSON']
+
+[build]
+  writeStats = false

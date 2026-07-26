@@ -1,0 +1,25 @@
+{{- /*
+  A single news post. Content lives in content/posts/.
+
+  Front matter this template uses:
+    title, date, author  — shown in the heading area
+    image                — optional banner picture above the text
+    image_alt, image_width, image_height
+*/ -}}
+{{ define "bodyclass" }}wp-singular post-template-default single single-post postid-{{ .Params.wp_id }} single-format-standard{{ end }}
+{{ define "main" }}
+	<div class="container single-post-container">
+		<div class="row">
+			<article id="post-{{ .Params.wp_id }}" class="nv-single-post-wrap col post-{{ .Params.wp_id }} post type-post status-publish format-standard{{ with .Params.image }} has-post-thumbnail{{ end }} hentry category-uncategorized{{ range .Params.tags }} tag-{{ . }}{{ end }}">
+				<div class="entry-header"><div class="nv-title-meta-wrap"><h1 class="title entry-title">{{ .Title }}</h1>{{ partial "post-meta.html" . }}</div></div>
+				{{- with .Params.image }}
+				<div class="nv-thumb-wrap"><img width="{{ $.Params.image_width | default 930 }}" height="{{ $.Params.image_height | default 620 }}" src="{{ . | relURL }}" class="attachment-neve-blog size-neve-blog wp-post-image" alt="{{ $.Params.image_alt }}" decoding="async" /></div>
+				{{- end }}
+				<div class="nv-content-wrap entry-content">
+{{ .Content }}
+				</div>
+				{{ partial "tags-list.html" . }}
+			</article>
+		</div>
+	</div>
+{{ end }}

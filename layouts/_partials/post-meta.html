@@ -1,0 +1,14 @@
+{{- /*
+  The "by <author>" line under a post's title.
+
+  The author comes from the post's front matter (`authors: ["dpk011"]`) and
+  links to that author's page. Authors live in content/authors/.
+*/ -}}
+<ul class="nv-meta-list"><li class="meta author vcard"><span class="author-name fn">by
+{{- range $i, $name := .Params.authors }}
+	{{- $term := site.GetPage (printf "authors/%s" $name) -}}
+	{{- if $i }}, {{ end }}
+	{{- with $term }} <a href="{{ .RelPermalink }}" title="Posts by {{ .Title }}" rel="author">{{ .Title }}</a>
+	{{- else }} {{ $name }}
+	{{- end }}
+{{- end }}</span></li></ul>

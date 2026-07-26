@@ -1,0 +1,31 @@
+{{- /*
+  Serves two similar pages, both listing a set of posts:
+    • an author's page  (/author/dpk011/) — from content/authors/
+    • a tag's page      (/tag/covid19/)   — from content/tags/
+  Sidebar sits on the right on both, as it did on the old site.
+*/ -}}
+{{ define "bodyclass" }}{{ $kind := .Data.Singular }}archive {{ $kind }} {{ $kind }}-{{ .Page.File.ContentBaseName }} {{ $kind }}-{{ .Params.wp_id }}{{ end }}
+{{ define "sidebarclass" }}nv-sidebar-right{{ end }}
+{{ define "main" }}
+	<div class="container archive-container">
+		<div class="row">
+			<div class="nv-index-posts blog col">
+				<div class="nv-page-title-wrap nv-big-title">
+					<div class="nv-page-title">
+						<h1>{{ if eq .Data.Singular "author" }}<span class="vcard">{{ .Title }}</span>{{ else }}{{ .Title }}{{ end }}</h1>
+					</div><!--.nv-page-title-->
+				</div>
+				<div class="posts-wrapper row">
+				{{- range .Pages }}
+					{{ partial "post-card.html" . }}
+				{{- end }}
+				</div>
+				<div class="load-more-posts"><span class="nv-loader" style="display: none"></span><span class="infinite-scroll-trigger"></span></div>
+				<div class="w-100"></div>
+			</div>
+			<div class="nv-sidebar-wrap col-sm-12 nv-right blog-sidebar" >
+				{{ partial "sidebar.html" . }}
+			</div>
+		</div>
+	</div>
+{{ end }}

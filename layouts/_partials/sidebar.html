@@ -1,0 +1,27 @@
+{{- /*
+  The sidebar on the News page: a search box and a list of recent posts.
+  The recent-posts list builds itself from content/posts/ — nothing to maintain.
+*/ -}}
+<aside id="secondary" role="complementary">
+<div id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="{{ "search/" | relURL }}">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+	</label>
+	<input type="submit" class="search-submit" value="Search" />
+	<div class="nv-search-icon-wrap"><div class="nv-icon nv-search" >
+	<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792"><path d="M1216 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"/></svg>
+</div></div></form>
+	<div class="nv-search-results" hidden></div>
+</div>
+<div id="recent-posts-2" class="widget widget_recent_entries">
+	<p class="widget-title">Recent Posts</p>
+	<ul>
+	{{- range first 5 (where site.RegularPages "Type" "posts") }}
+		<li>
+			<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+		</li>
+	{{- end }}
+	</ul>
+</div>
+</aside>

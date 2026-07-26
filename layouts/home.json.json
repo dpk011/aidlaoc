@@ -1,0 +1,15 @@
+{{- /*
+  Builds /index.json — the list of pages the News page search box looks
+  through. It regenerates on every build, so there is nothing to keep in sync.
+*/ -}}
+{{- $pages := slice -}}
+{{- range where site.RegularPages "Params.searchExclude" "!=" true -}}
+  {{- $pages = $pages | append (dict
+      "title"   .Title
+      "url"     .RelPermalink
+      "date"    (.Date.Format "January 2, 2006")
+      "isPost"  (eq .Type "posts")
+      "content" (.Plain | htmlUnescape | chomp)
+  ) -}}
+{{- end -}}
+{{- $pages | jsonify -}}
