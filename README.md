@@ -86,7 +86,12 @@ The preview reloads as you save. Stop it with Ctrl-C. `hugo server` never
 touches the live site — publishing only happens when you commit.
 
 Build with `hugo`; the finished site lands in `public/`, which is deliberately
-not committed.
+not committed. The published site is built with `hugo build --gc --minify`,
+which was checked to render identically to the unminified output.
+
+If you upgrade Hugo locally, bump `HUGO_VERSION` in
+`.github/workflows/deploy.yml` to match, so the published site is built with
+the same version you previewed with.
 
 ---
 
